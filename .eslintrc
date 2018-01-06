@@ -1,0 +1,31 @@
+{
+  "env": {
+    "node": true,
+    "jest/globals": true
+  },
+  "extends": ["prettier"],
+  "plugins": ["import-order-autofix", "jest", "prettier"],
+  "parserOptions": {
+    "ecmaVersion": 2017,
+    "ecmaFeatures": {
+      "experimentalObjectRestSpread": true
+    }
+  },
+  "rules": {
+    "import-order-autofix/order": 1,
+    "jest/no-disabled-tests": "warn",
+    "jest/no-focused-tests": "error",
+    "jest/no-identical-title": "error",
+    "jest/prefer-to-have-length": "warn",
+    "jest/valid-expect": "error",
+    "no-throw-literal": 0,
+    "prettier/prettier": "error"
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "moduleDirectory": ["node_modules"]
+      }
+    }
+  }
+}

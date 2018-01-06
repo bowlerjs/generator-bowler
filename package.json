@@ -1,0 +1,66 @@
+{
+  "name": "generator-bowler",
+  "version": "0.0.1",
+  "description": "A Yeoman generator for a Bowler application",
+  "homepage": "https://bowler.io",
+  "main": "generators/app/index.js",
+  "license": "MIT",
+  "keywords": [
+    "bowler",
+    "bowler-app-generator",
+    "yeoman-generator",
+    "yeoman"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bowlerjs/generator-bowler.git"
+  },
+  "author": {
+    "name": "Bowler contributors",
+    "email": "contact@bowler.io",
+    "url": "https://bowler.io"
+  },
+  "contributors": [],
+  "bugs": {
+    "url": "https://github.com/bowlerjs/generator-bowler/issues"
+  },
+  "scripts": {
+    "publish": "git push origin --tags && npm run changelog && git push origin",
+    "release:pre": "npm version prerelease && npm publish --tag pre",
+    "release:patch": "npm version patch && npm publish",
+    "release:minor": "npm version minor && npm publish",
+    "release:mayor": "npm version mayor && npm publish",
+    "changelog": "github_changelog_generator && git add CHANGELOG.md && git commit -am \"Updating changelog\"",
+    "eslint": "eslint lib/. generators/**/index.js --config .eslintrc",
+    "test": "npm run eslint && npm run jest",
+    "jest": "jest --no-cache"
+  },
+  "dependencies": {
+    "lodash": "^4.17.4",
+    "semver": "^5.4.1",
+    "yeoman-generator": "^2.0.2"
+  },
+  "devDependencies": {
+    "eslint": "^4.14.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-flowtype": "^2.40.1",
+    "eslint-plugin-import-order-autofix": "^0.8.3",
+    "eslint-plugin-jest": "^21.5.0",
+    "eslint-plugin-prettier": "^2.4.0",
+    "prettier": "^1.9.2",
+    "yeoman-assert": "^3.1.0",
+    "yeoman-test": "^1.7.0"
+  },
+  "lint-staged": {
+    "*.{js}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "jest": {
+    "moduleDirectories": [
+      "node_modules"
+    ],
+    "collectCoverage": true
+  }
+}
