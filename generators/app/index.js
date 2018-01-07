@@ -1,5 +1,6 @@
-const Generator = require('../../lib/generator');
 const path = require('path');
+const rename = require('gulp-rename');
+const Generator = require('../../lib/generator');
 const makeConfig = require('./configs');
 const { kebabCase } = require('lodash');
 
@@ -124,7 +125,7 @@ module.exports = class AppGenerator extends Generator {
       }
     });
 
-    this.fs.copy(this.templatePath('src'), this.destinationPath(props.src));
+    this.fs.copy(this.templatePath(['src', '!*.yjs']), this.destinationPath(props.src));
     this.fs.copy(this.templatePath('_eslintrc'), this.destinationPath('', '.eslintrc'));
     this.fs.copy(this.templatePath('_flowconfig'), this.destinationPath('', '.flowconfig'));
     this.fs.copy(this.templatePath('_gitignore'), this.destinationPath('', '.gitignore'));
@@ -133,6 +134,11 @@ module.exports = class AppGenerator extends Generator {
     this.fs.copyTpl(this.templatePath('README.md'), this.destinationPath('', 'README.md'), context);
 
     this.fs.copyTpl(this.templatePath('server.js'), this.destinationPath('server.js'), context);
+    this.fs.copyTpl(
+      this.templatePath('src/index.yjs'),
+      this.destinationPath(props.src, 'index.js'),
+      context
+    );
 
     /*this.fs.copyTpl(
       this.templatePath('app.test.js'),

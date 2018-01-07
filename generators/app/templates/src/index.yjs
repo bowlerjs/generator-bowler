@@ -1,4 +1,10 @@
 // @flow
+<% 
+/*
+ * The yjs filename is to mark a file as a Yeoman template, 
+ * and will get changed to a regular js file when the file is deployed,
+ */
+%>
 import 'babel-register';
 import 'babel-polyfill';
 import 'clarify';
@@ -15,10 +21,9 @@ import { createServer } from 'http';
 import { SubscriptionServer } from 'subscriptions-transport-ws';
 
 // local modules
-import * as db from './database';
-import { client, corsOptionsDelegate, language, wallet } from './middleware';
+<% if(hasDb()) {%> import * as db from './database';<% } %>
+import { client, corsOptionsDelegate, language } from './middleware';
 import schema, { buildDataloaders } from './schema';
-//import './providers';
 
 const subEndpoint = Config.get('graphql.subscriptions');
 const endpointURL = Config.get('graphql.endpoint');

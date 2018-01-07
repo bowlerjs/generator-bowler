@@ -36,6 +36,7 @@
     "jest": "jest --no-cache"
   },
   "dependencies": {
+    "gulp-rename": "^1.2.2",
     "lodash": "^4.17.4",
     "semver": "^5.4.1",
     "yeoman-generator": "^2.0.2"
