@@ -4,7 +4,7 @@
     "jest/globals": true
   },
   "extends": ["prettier"],
-  "plugins": ["import-order-autofix", "jest", "prettier"],
+  "plugins": ["jest", "prettier"],
   "parserOptions": {
     "ecmaVersion": 2017,
     "ecmaFeatures": {
