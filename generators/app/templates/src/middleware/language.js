@@ -1,5 +1,5 @@
 // @flow
-import { Country, SupportedLanguages, Regulators } from '../constants';
+import { Country, SupportedLanguages } from '../constants';
 
 /**
  * @name language
@@ -26,7 +26,7 @@ export default (async function language(req, res, next) {
 
   /*
    * If we don't have a preferred language,
-   * but a browser preferred language,
+   * but a browser language,
    * we use that as preferred language
    */
   if (!prefLang && browserLang) {
